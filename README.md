@@ -28,17 +28,6 @@ This repository contains the static website only. GitHub Pages does not run a No
 
 Open an article, choose **Edit fault**, change its details or images, and choose **Save changes**. The sample can be edited too; its browser-local version replaces the sample in that browser, without adding a duplicate. Changes persist after reload but are not published to other technicians. Export the article JSON to share your changes.
 
-## ATA systems
+## Systems
 
-The system selector contains 58 aircraft ATA chapters, grouped into Aircraft general, Aircraft systems, Structures, Propellers, Powerplant and Other technical references. This is a broad fixed-wing index for the jet and turboprop fleet, not a claim that every chapter applies to every aircraft variant. Use the current manufacturer manual to confirm applicability. Rotorcraft-only chapters and reserved numbers are excluded.
-
-Visual, Motion, IOS and Misc remain simulator-specific categories. The generic Avionics category is also retained for existing drafts; use a specific ATA chapter for new aircraft-system faults. Aircraft ATA chapters are available in the library filter and in the add/edit form. Search also matches chapter numbers and titles.
-
-References:
-
-- ATA Standard Numbering System: https://ataebiz.org/standards/
-- Aircraft-general and airframe chapter training index: https://www.aviationacademy.it/mydesk/wp-content/uploads/2023/09/ATA_Chapters.pdf
-- FAA JASC reference (derived from ATA, with documented differences): https://sdrs.faa.gov/documents/JASC_Code.pdf
-- EASA ATA references for modern aircraft systems: https://www.easa.europa.eu/en/document-library/easy-access-rules/online-publications/easy-access-rules-continuing-airworthiness?erules-id=ERULES-1963177438-22314
-- Technical documentation chapter grouping: https://www.fzt.haw-hamburg.de/pers/Scholz/paper/TannerPaper_ori.pdf
-
+The available system categories are Visual and Motion. Existing browser-local drafts are preserved; when editing a draft with a retired category, select Visual or Motion before saving.

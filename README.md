@@ -31,3 +31,11 @@ Open an article, choose **Edit fault**, change its details or images, and choose
 ## Systems
 
 The available system categories are Visual and Motion. Existing browser-local drafts are preserved; when editing a draft with a retired category, select Visual or Motion before saving.
+
+## Writing an article
+
+The sample is a fictional writing guide, not a technical procedure. It demonstrates observed symptoms, investigation notes with a tested resolution, numbered example steps, verification evidence, document references and image attachments. Replace example details with the actions you actually tested and confirmed. Personal edits to the sample remain saved in the browser and are not overwritten by website updates.
+
+## Fleet directory
+
+The fleet page groups the ten simulator variants into Regional jets and Turboprops. Each model opens its filtered knowledge base; the directory shows Visual and Motion counts and article availability. Layout styling for the directory and article template is in `fleet-sample.css`.

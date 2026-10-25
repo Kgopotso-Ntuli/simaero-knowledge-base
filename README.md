@@ -40,3 +40,13 @@ The sample is a fictional writing guide, not a technical procedure. Its sections
 
 The fleet page presents all ten simulator variants together in one directory. Each model opens its filtered knowledge base; the directory shows Visual and Motion counts and article availability. Layout styling for the directory and article template is in `fleet-sample.css`.
 
+## Resolution-step editor
+
+Enter an Action and optional Details or result for each step. Add, remove or move steps up/down using the controls; numbering and article formatting are automatic. Existing notes are converted to editable steps when opening an older article. The formatted notes text is also retained in exports for compatibility.
+
+## Actual document attachments
+
+Upload PDF, Word, Excel, PowerPoint, TXT, CSV or RTF files (up to five documents per article, 25 MB each). Documents are stored as original file blobs in this browser's IndexedDB, with metadata in the draft. Download them from the article's Documentation or manual section. Removing a saved attachment takes effect when the article is saved. JSON exports include the attached files as base64 data, along with images and steps.
+
+Attachments are browser-local, not uploaded to GitHub or shared automatically with the department. Clearing browser site data removes local drafts and documents; export important articles first. Storage limits depend on the browser. `article-tools.js` implements step editing, document storage, downloads and export.
+

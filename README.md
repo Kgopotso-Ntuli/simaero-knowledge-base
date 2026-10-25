@@ -34,8 +34,9 @@ The available system categories are Visual and Motion. Existing browser-local dr
 
 ## Writing an article
 
-The sample is a fictional writing guide, not a technical procedure. It demonstrates observed symptoms, investigation notes with a tested resolution, numbered example steps, verification evidence, document references and image attachments. Replace example details with the actions you actually tested and confirmed. Personal edits to the sample remain saved in the browser and are not overwritten by website updates.
+The sample is a fictional writing guide, not a technical procedure. Its sections are What was the fault?, System affected, Resolution, Documentation or manual, and Images. Headings are unnumbered; only resolution steps use numbers. The form has fields for the manual title/revision/section and an optional HTTP(S) document link. Replace example details with your own tested findings. This template update keeps a downloadable browser-local backup of earlier sample edits; other local drafts remain unchanged.
 
 ## Fleet directory
 
-The fleet page groups the ten simulator variants into Regional jets and Turboprops. Each model opens its filtered knowledge base; the directory shows Visual and Motion counts and article availability. Layout styling for the directory and article template is in `fleet-sample.css`.
+The fleet page presents all ten simulator variants together in one directory. Each model opens its filtered knowledge base; the directory shows Visual and Motion counts and article availability. Layout styling for the directory and article template is in `fleet-sample.css`.
+

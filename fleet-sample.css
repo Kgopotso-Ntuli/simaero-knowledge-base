@@ -33,6 +33,10 @@
 .evidence-placeholder p{font-size:13px;color:#587483;line-height:1.7;margin:4px 0 0;}
 .article-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:25px;}
 .article-actions>span{color:#667e8d;font-size:12px;width:100%;margin-top:4px;}
+.manual-link{display:inline-block;margin-top:10px;font-size:14px;font-weight:600;color:#086b91;text-decoration:underline;text-underline-offset:3px;}
+.previous-sample-link{border:0;background:transparent;color:#526e7d;padding:8px 0;font-size:12px;text-decoration:underline;text-underline-offset:3px;}
+.article-section-title{gap:0;}
+.article-section .detail-block{padding:0;border:0;}
 .field-help{font-size:13px;line-height:1.75;color:#45675f;background:#eff7f4;border-radius:6px;padding:13px 15px;margin:-1px 0 20px;}
 .field-help strong{display:block;color:#22645a;}
 .writing-example{border:1px solid #cfe2eb;border-radius:8px;margin-top:22px;padding:17px;background:#fcfefe;}

@@ -70,3 +70,7 @@ textarea {min-height:110px;}
 .image-gallery img {display:block;width:100%;height:auto;border-radius:6px;border:1px solid #c8dbe4;}
 @media(max-width:1150px){.stats>div{padding:0 10px;}h1{font-size:30px;}.stats span{font-size:12px;}}
 @media(max-width:760px){h1{font-size:28px;}.heading p{font-size:15px;}nav button{font-size:13px;}.article-grid{grid-template-columns:1fr;}.search-box input{font-size:14px;}.search-title{font-size:20px;}.search-hint{font-size:12px;}dialog{padding:22px;}.image-previews{grid-template-columns:repeat(2,minmax(0,1fr));}.filters{gap:12px;}.stats span{font-size:13px;}}
+
+.stats {grid-template-columns:repeat(3,minmax(0,1fr));}
+.secondary {background:#eef5f8;border:1px solid #c3d7e1;color:#18516c;border-radius:6px;padding:12px 16px;font-size:14px;font-weight:600;}
+@media(max-width:760px){.stats{grid-template-columns:repeat(3,minmax(0,1fr));padding:16px 12px;gap:10px;}.stats strong{font-size:23px;}.stats span{font-size:12px;}}

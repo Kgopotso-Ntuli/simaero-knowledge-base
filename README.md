@@ -24,3 +24,7 @@ New drafts, image attachments and bookmarks stay in the current browser. Attach 
 
 This repository contains the static website only. GitHub Pages does not run a Node.js backend.
 
+## Edit a fault
+
+Open an article, choose **Edit fault**, change its details or images, and choose **Save changes**. The sample can be edited too; its browser-local version replaces the sample in that browser, without adding a duplicate. Changes persist after reload but are not published to other technicians. Export the article JSON to share your changes. The available systems are Visual, Motion, Avionics, IOS and Misc.
+

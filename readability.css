@@ -74,3 +74,10 @@ textarea {min-height:110px;}
 .stats {grid-template-columns:repeat(3,minmax(0,1fr));}
 .secondary {background:#eef5f8;border:1px solid #c3d7e1;color:#18516c;border-radius:6px;padding:12px 16px;font-size:14px;font-weight:600;}
 @media(max-width:760px){.stats{grid-template-columns:repeat(3,minmax(0,1fr));padding:16px 12px;gap:10px;}.stats strong{font-size:23px;}.stats span{font-size:12px;}}
+
+.filters {flex-wrap:wrap;align-items:center;}
+.chapter-filters{display:flex;gap:12px;flex-wrap:wrap;}
+#ataFilter{max-width:420px;min-width:250px;}
+#formCategory{max-width:100%;}
+.badge{white-space:normal;overflow-wrap:anywhere;max-width:calc(100% - 34px);}
+@media(max-width:760px){.chapter-filters{width:100%;}#ataFilter{max-width:100%;min-width:0;width:100%;}}

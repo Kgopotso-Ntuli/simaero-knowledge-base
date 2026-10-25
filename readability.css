@@ -1,0 +1,72 @@
+/* Readable type, stronger contrast and room for fault photos. */
+:root { --muted:#526b79; --ink:#163647; --line:#d5e1e7; }
+body {font-size:16px;line-height:1.6;}
+.sidebar {overflow-y:auto;padding-top:26px;padding-bottom:22px;}
+.brand>span {font-size:10px;color:#526b79;letter-spacing:1.5px;}
+.workspace {margin:24px 0;flex-shrink:0;}
+.workspace div {font-size:13px;}
+small {font-size:12px;color:#526b79;}
+.nav-label {font-size:11px;color:#526b79;letter-spacing:1.2px;}
+nav button {font-size:14px;color:#415e70;gap:10px;}
+nav b {font-size:13px;}
+.fleet-label {margin-top:23px;}
+.fleet-btn {font-size:13px;color:#415e70;padding:6px 12px;}
+.sidebar-foot {font-size:11px;color:#526b79;}
+header {font-size:13px;color:#526b79;}
+header strong {color:#2a4d60;}
+.eyebrow {font-size:11px;color:#147a79;letter-spacing:1.3px;}
+h1 {font-size:34px;line-height:1.3;}
+.heading p {font-size:15px;color:#496170;}
+.primary {font-size:14px;padding:12px 18px;}
+.primary:disabled {opacity:.6;cursor:wait;}
+.search-title {font-size:22px;}
+.search-box {height:56px;}
+.search-box input {font-size:16px;}
+.search-box input::placeholder {color:#596f7d;}
+.search-hint {font-size:13px;color:#c9e0ea;}
+.search-hint button {color:#e3f4f4;}
+.stats strong {font-size:25px;}
+.stats span {font-size:13px;color:#496170;}
+h2 {font-size:22px;}
+.section-heading>span {font-size:13px;color:#496170;}
+.chip {font-size:14px;color:#415e70;padding:9px 13px;}
+.filters select {font-size:14px;color:#344f60;}
+.sample-note {font-size:13px;color:#38596c;line-height:1.7;}
+.article-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+.card {padding:23px;min-height:245px;}
+.badge {font-size:12px;font-weight:600;color:#1f617c;}
+.badge.visual {color:#206d61;}
+.badge.motion {color:#66518f;}
+.bookmark {font-size:25px;color:#526b79;}
+.card h3 {font-size:19px;line-height:1.5;}
+.card p {font-size:15px;line-height:1.75;color:#496170;}
+.sim-tag {font-size:12px;color:#3c5c6d;padding:4px 8px;}
+.card-bottom {font-size:12px;color:#526b79;}
+.draft {color:#886324;}
+.arrow {color:#147a79;}
+footer {font-size:12px;color:#526b79;}
+footer>span:first-child {font-size:11px;}
+dialog {width:min(780px,94vw);padding:30px;}
+.muted {font-size:15px;color:#496170;}
+label {font-size:15px;margin:19px 0 10px;}
+label input,label textarea,label select {font-size:16px;color:#163647;padding:12px;}
+textarea {min-height:110px;}
+.detail-block h3 {font-size:17px;}
+.detail-block p {font-size:16px;line-height:1.85;color:#344f60;}
+.notice {font-size:14px;color:#78541d;}
+.toast {font-size:15px;max-width:min(480px,90vw);}
+.image-upload {border:2px dashed #b3cbd6;border-radius:8px;background:#f2f8fa;padding:18px;margin-bottom:22px;}
+.image-upload input {width:100%;font-size:14px;}
+.image-upload input::file-selector-button {background:#086b91;color:white;border:0;border-radius:5px;padding:10px 14px;margin-right:12px;font:inherit;cursor:pointer;}
+#imageHelp,#imageStatus {font-size:13px;color:#415e70;}
+#imageError {font-size:14px;font-weight:600;color:#a32c28;}
+#imageError:empty,#imageStatus:empty {display:none;}
+.image-previews {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+.image-previews figure,.image-gallery figure {margin:0;min-width:0;}
+.image-previews img {width:100%;height:110px;object-fit:contain;background:white;border:1px solid #c8dbe4;border-radius:5px;}
+.image-previews figcaption,.image-gallery figcaption {font-size:13px;color:#415e70;overflow-wrap:anywhere;}
+.image-previews button {background:white;border:1px solid #c8dbe4;border-radius:5px;padding:5px 10px;margin-top:6px;color:#8c302c;font-size:13px;}
+.image-gallery {display:grid;gap:20px;}
+.image-gallery img {display:block;width:100%;height:auto;border-radius:6px;border:1px solid #c8dbe4;}
+@media(max-width:1150px){.stats>div{padding:0 10px;}h1{font-size:30px;}.stats span{font-size:12px;}}
+@media(max-width:760px){h1{font-size:28px;}.heading p{font-size:15px;}nav button{font-size:13px;}.article-grid{grid-template-columns:1fr;}.search-box input{font-size:14px;}.search-title{font-size:20px;}.search-hint{font-size:12px;}dialog{padding:22px;}.image-previews{grid-template-columns:repeat(2,minmax(0,1fr));}.filters{gap:12px;}.stats span{font-size:13px;}}

@@ -11,15 +11,16 @@ GitHub Pages publishes the `main` branch, `/ (root)` folder. Updates committed t
 ## Files
 
 - `index.html`: page structure and contribution form
-- `styles.css`: SIMAERO branding and responsive layout
+- `styles.css` and `readability.css`: SIMAERO branding, larger type and higher contrast
 - `app.js`: sample articles, search, filters, bookmarks and browser-local drafts
 - `simaero.png`: supplied company logo
 - `.nojekyll`: serves the files as plain static content
 
 ## Content and storage
 
-The six starter fault articles are examples, not reviewed maintenance procedures. Consult approved manufacturer documentation for actual maintenance.
+One starter fault article is included as an example, not a reviewed maintenance procedure. Consult approved manufacturer documentation for actual maintenance.
 
-New drafts and bookmarks stay in the current browser. Saving a draft does not publish it to other technicians. Shared content currently requires an update to the website source and redeployment. A central database and individual sign-in can be added later.
+New drafts, image attachments and bookmarks stay in the current browser. Attach up to three PNG, JPG or WebP images (10 MB input limit each); images are resized to fit browser storage and included in JSON exports. Saving a draft does not publish it to other technicians. Shared content currently requires an update to the website source and redeployment. A central database and individual sign-in can be added later.
 
 This repository contains the static website only. GitHub Pages does not run a Node.js backend.
+

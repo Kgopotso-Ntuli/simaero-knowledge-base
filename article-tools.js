@@ -50,13 +50,6 @@ function documentList(documents){
  return files.length?'<div class="document-list">'+files.map(document=>'<button type="button" class="document-file document-download" data-document-download="'+esc(document.id)+'"><span class="document-icon" aria-hidden="true">▤</span><span><strong>'+esc(document.name)+'</strong><small>'+fileSize(document.size)+' · Download document</small></span><span aria-hidden="true">↓</span></button>').join('')+'</div>':'<p class="document-empty">No documents attached. Use Edit fault to upload a manual, worksheet or reference file.</p>';
 }
 function downloadBlob(blob,name){const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),5000)}
-function blobDataUrl(blob){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(Error('Unable to export a document.'));reader.readAsDataURL(blob)})}
-exportKnowledgeArticle=async function(article,filename='simaero-'+article.id+'.json'){
- try{
-  const documents=[];for(const metadata of article.documents||[]){const document=await readDocument(metadata.id);if(!document?.blob)throw Error('A document is unavailable in this browser. Reattach it before exporting.');documents.push({...metadata,data:await blobDataUrl(document.blob)})}
-  downloadBlob(new Blob([JSON.stringify({...article,documents},null,2)],{type:'application/json'}),filename);
- }catch(error){toast(error.message)}
-};
 const openBasicEditor=openEditor;
 openEditor=function(id=null){
  openBasicEditor(id);if(id&&!editingOriginal)return;

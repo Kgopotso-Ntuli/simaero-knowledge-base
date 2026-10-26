@@ -69,9 +69,6 @@ function resolutionMarkup(notes){
 }
 
 function safeManualUrl(value){return typeof value==='string'&&/^https?:\/\/\S+$/i.test(value.trim())?value.trim():''}
-function exportKnowledgeArticle(article,filename='simaero-'+article.id+'.json'){
- const url=URL.createObjectURL(new Blob([JSON.stringify(article,null,2)],{type:'application/json'}));const link=document.createElement('a');link.href=url;link.download=filename;link.click();URL.revokeObjectURL(url);
-}
 function detail(id){const a=allArticles().find(article=>article.id===id);if(!a)return;
  const manual=safeManualUrl(a.manualUrl);
  $('#detailContent').innerHTML=`<div class="dialog-top"><span class="article-type">${a.sample?'SAMPLE HOW-TO GUIDE':'FAULT KNOWLEDGE BASE'}</span><button class="close" data-close="detail" aria-label="Close">×</button></div><div class="article-detail-heading"><h2>${esc(a.title)}</h2><div class="article-simulators">${a.sims.map(sim=>'<span class="sim-tag">'+esc(sim)+'</span>').join('')}</div></div>
@@ -81,8 +78,8 @@ function detail(id){const a=allArticles().find(article=>article.id===id);if(!a)r
  <section class="article-section"><div class="article-section-title"><h3>Resolution</h3></div><div class="resolution-guidance"><strong>Record your tested resolution here.</strong><p>Explain what fixed the fault and how you confirmed normal operation.</p></div>${resolutionMarkup(a.resolutionSteps||a.notes)}</section>
  <section class="article-section"><div class="article-section-title"><h3>Documentation or manual</h3></div><div class="reference-panel"><p>${esc(a.reference||'Add the manual title, revision and section used.')}</p>${manual?'<a class="manual-link" href="'+esc(manual)+'" target="_blank" rel="noopener noreferrer">Open documentation ↗</a>':''}</div>${documentList(a.documents)}</section>
  <section class="article-section"><div class="article-section-title"><h3>Images</h3></div>${(a.images||[]).some(validImage)?imageGallery(a.images):'<div class="evidence-placeholder"><span aria-hidden="true">▧</span><div><strong>Add photos or screenshots</strong><p>Use Edit fault to attach images of the fault and the resolved result.</p></div></div>'}</section>
- <div class="article-actions"><button class="primary" id="editArticle">Edit fault</button><button class="secondary" id="exportArticle">Export guide (JSON)</button>${a.sample&&previousSample?'<button class="previous-sample-link" id="exportPreviousSample">Download previous sample edits</button>':''}<span>${a.sample?'Example structure only. Replace with your own tested findings.':'Saved in this browser.'}</span></div>`
-;$('#editArticle').onclick=()=>{ $('#detail').close();openEditor(a.id);};$('#exportArticle').onclick=()=>exportKnowledgeArticle(a);if(a.sample&&previousSample)$('#exportPreviousSample').onclick=()=>exportKnowledgeArticle(previousSample,'simaero-previous-sample.json');$('#detail').showModal()}
+ <div class="article-actions"><button class="primary" id="editArticle">Edit fault</button><button class="secondary" id="exportArticle">Download PDF</button><span>${a.sample?'Example structure only. Replace with your own tested findings.':'Saved in this browser.'}</span></div>`
+;$('#editArticle').onclick=()=>{ $('#detail').close();openEditor(a.id);};$('#exportArticle').onclick=()=>exportKnowledgeArticle(a);$('#detail').showModal()}
 document.addEventListener('click',e=>{let b=e.target.closest('[data-save]');if(b){e.stopPropagation();const id=b.dataset.save;saved=saved.includes(id)?saved.filter(x=>x!==id):[...saved,id];persist();render();return}b=e.target.closest('[data-id]');if(b){detail(b.dataset.id);return}b=e.target.closest('[data-close]');if(b)$('#'+b.dataset.close).close();b=e.target.closest('[data-category]');if(b){category=b.dataset.category;document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('selected',c===b));render()}b=e.target.closest('[data-sim],[data-fleet-card]');if(b){$('#simFilter').value=b.dataset.sim||b.dataset.fleetCard;$('#search').value='';category='All systems';document.querySelectorAll('.chip').forEach(button=>button.classList.toggle('selected',button.dataset.category===category));setView('all')}b=e.target.closest('[data-view]');if(b)setView(b.dataset.view);b=e.target.closest('[data-query]');if(b){$('#search').value=b.dataset.query;setView('all')}});
 document.addEventListener('keydown',e=>{if(e.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();$('#search').focus()}const card=e.target.closest('[data-id]');if(card&&(e.key==='Enter'||e.key===' ')&&e.target===card){e.preventDefault();detail(card.dataset.id)}});$('#search').oninput=render;$('#simFilter').onchange=render;$('#newArticle').onclick=()=>$('#editor').showModal();$('#reset').onclick=()=>{category='All systems';$('#search').value='';$('#simFilter').value='';document.querySelectorAll('.chip').forEach(b=>b.classList.toggle('selected',b.dataset.category===category));render()};render();
 
@@ -96,7 +93,7 @@ function openEditor(id=null){
  pendingImages=(editingOriginal?.images||[]).filter(validImage).map(image=>({...image}));
  $('#editorTitle').textContent=editingOriginal?'Edit fault':'Add a how-to guide';
  $('#articleForm [type=submit]').textContent=editingOriginal?'Save changes':'Save local draft';
- $('#editorHelp').textContent=editingOriginal?'Changes are saved in this browser. Export the guide to share your changes.':'Drafts are saved in this browser. Export to share with your team.';
+ $('#editorHelp').textContent=editingOriginal?'Changes are saved in this browser. Download a PDF to share or print your guide.':'Drafts are saved in this browser. Download a PDF to share or print.';
  for(const key of ['title','summary','reference','manualUrl'])$('#articleForm [name='+key+']').value=editingOriginal?.[key]||'';
  $('#formSim').value=editingOriginal?.sims?.[0]||fleet[0];
  $('#formCategory').value=categories.includes(editingOriginal?.category)?editingOriginal.category:categories[1];

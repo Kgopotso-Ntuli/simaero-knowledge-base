@@ -1,7 +1,7 @@
 let shared=[],sharedMode=false;
 const fleet=['CRJ 200','CRJ 700','DASH 8','Beech 1900D','EMB 190','EMB 145','ATR 72-500','ATR 72-200','ATR 42-300','ATR 42-500'];
 // DASH 8 is one family; the fleet includes ten named variants across six families.
-const simulatorCategories=['Visual','Motion'];
+const simulatorCategories=['Visual','Motion','Miscellaneous'];
 const categories=['All systems',...simulatorCategories];
 const seeds=[
   {
@@ -46,16 +46,16 @@ function setView(v){
  document.querySelectorAll('.search-panel,.stats,.filters,.sample-note').forEach(section=>section.hidden=v==='fleet');
  $('#breadcrumb').textContent=v==='saved'?'Saved articles':v==='fleet'?'Simulator fleet':'Knowledge base';
  $('#pageTitle').innerHTML=(v==='saved'?'Your saved knowledge':v==='fleet'?'Your simulator fleet':'Technical knowledge base')+'<span>.</span>';
- $('#pageIntro').textContent=v==='fleet'?'Choose a simulator to find its Visual and Motion faults.':'Find the fault. Follow the knowledge. Get back to ready.';
+ $('#pageIntro').textContent=v==='fleet'?'Choose a simulator to find its faults across all systems.':'Find the fault. Follow the knowledge. Get back to ready.';
  $('#listTitle').textContent=v==='fleet'?'All simulators':'Explore the knowledge base';render();
  if(v==='fleet')$('#resultCount').textContent=fleet.length+' simulator variants';
 }
 function renderFleet(all){
  const families={'CRJ 200':'CRJ series','CRJ 700':'CRJ series','EMB 190':'E-Jet series','EMB 145':'ERJ series','DASH 8':'Dash 8 series','Beech 1900D':'Beechcraft 1900 series'};
- return '<div class="fleet-overview"><div><div class="eyebrow">ONE SIMULATOR FLEET</div><h2>All your simulators, together.</h2><p>Select any model to view its Visual and Motion faults.</p></div><div class="fleet-total"><strong>'+fleet.length+'</strong><span>simulator variants</span></div></div><div class="fleet-roster">'+fleet.map(sim=>{
+ return '<div class="fleet-overview"><div><div class="eyebrow">ONE SIMULATOR FLEET</div><h2>All your simulators, together.</h2><p>Select any model to view its faults across all systems.</p></div><div class="fleet-total"><strong>'+fleet.length+'</strong><span>simulator variants</span></div></div><div class="fleet-roster">'+fleet.map(sim=>{
  const articles=all.filter(article=>article.sims.includes(sim));
- const visual=articles.filter(article=>article.category==='Visual').length,motion=articles.filter(article=>article.category==='Motion').length;
- return '<button class="fleet-row" data-fleet-card="'+esc(sim)+'" aria-label="Open '+esc(sim)+' knowledge base"><span class="fleet-model-icon" aria-hidden="true">✈</span><span class="fleet-model"><strong>'+esc(sim)+'</strong><small>'+esc(families[sim]||'ATR series')+'</small></span><span class="fleet-system-counts"><span>Visual <b>'+visual+'</b></span><span>Motion <b>'+motion+'</b></span></span><span class="fleet-article-count">'+(articles.length?articles.length+' article'+(articles.length===1?'':'s'):'No articles yet')+'</span><span class="fleet-open" aria-hidden="true">↗</span></button>';
+ const systemCounts=simulatorCategories.map(system=>'<span>'+esc(system)+' <b>'+articles.filter(article=>article.category===system).length+'</b></span>').join('');
+ return '<button class="fleet-row" data-fleet-card="'+esc(sim)+'" aria-label="Open '+esc(sim)+' knowledge base"><span class="fleet-model-icon" aria-hidden="true">✈</span><span class="fleet-model"><strong>'+esc(sim)+'</strong><small>'+esc(families[sim]||'ATR series')+'</small></span><span class="fleet-system-counts">'+systemCounts+'</span><span class="fleet-article-count">'+(articles.length?articles.length+' article'+(articles.length===1?'':'s'):'No articles yet')+'</span><span class="fleet-open" aria-hidden="true">↗</span></button>';
  }).join('')+'</div>';
 }
 

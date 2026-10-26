@@ -44,8 +44,8 @@ $('#articles').classList.toggle('fleet-layout',view==='fleet');$('#articles').in
 function setView(v){
  view=v;window.scrollTo(0,0);document.querySelectorAll('nav button').forEach(button=>button.classList.toggle('active',button.dataset.view===v));
  document.querySelectorAll('.search-panel,.stats,.filters,.sample-note').forEach(section=>section.hidden=v==='fleet');
- $('#breadcrumb').textContent=v==='saved'?'Saved articles':v==='fleet'?'Simulator fleet':'Knowledge base';
- $('#pageTitle').innerHTML=(v==='saved'?'Your saved knowledge':v==='fleet'?'Your simulator fleet':'Technical knowledge base')+'<span>.</span>';
+ $('#breadcrumb').textContent=v==='saved'?'How-to guides':v==='fleet'?'Simulator fleet':'Knowledge base';
+ $('#pageTitle').innerHTML=(v==='saved'?'How-to guides':v==='fleet'?'Your simulator fleet':'Technical knowledge base')+'<span>.</span>';
  $('#pageIntro').textContent=v==='fleet'?'Choose a simulator to find its faults across all systems.':'Find the fault. Follow the knowledge. Get back to ready.';
  $('#listTitle').textContent=v==='fleet'?'All simulators':'Explore the knowledge base';render();
  if(v==='fleet')$('#resultCount').textContent=fleet.length+' simulator variants';

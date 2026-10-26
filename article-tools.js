@@ -67,7 +67,7 @@ $('#addResolutionStep').onclick=()=>{if(pendingSteps.length>=20||savingArticle)r
 $('#articleDocuments').onchange=event=>{
  $('#documentError').textContent='';const files=Array.from(event.target.files);
  try{
-  if(files.length+pendingDocuments.length>5)throw Error('Attach up to 5 documents per article.');
+  if(files.length+pendingDocuments.length>5)throw Error('Attach up to 5 documents per guide.');
   const additions=files.map(file=>{const extension=file.name.split('.').pop().toLowerCase();if(!documentTypes[extension])throw Error('Choose PDF, Word, Excel, PowerPoint, TXT, CSV or RTF documents.');if(file.size>25*1024*1024)throw Error(file.name+' is larger than 25 MB.');return {id:crypto.randomUUID(),name:file.name,size:file.size,type:documentTypes[extension],blob:file}});
   pendingDocuments.push(...additions);renderDocumentEditor();
  }catch(error){$('#documentError').textContent=error.message}finally{event.target.value=''}

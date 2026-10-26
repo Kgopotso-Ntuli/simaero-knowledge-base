@@ -1,4 +1,7 @@
 [hidden]{display:none!important}
+.brand>span{letter-spacing:2px;}
+.workspace-simple{padding:14px 13px;gap:11px;}
+.workspace-simple>div{font-size:13px;line-height:1.4;font-weight:600;}
 /* Article template */
 #detail{width:min(880px,94vw);padding:32px;}
 .article-type{color:#526e7d;font-size:11px;letter-spacing:1.1px;font-weight:700;}
